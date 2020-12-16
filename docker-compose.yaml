@@ -19,10 +19,10 @@ services:
       - ./:/var/www
 #     networks:
 #       - app-networks
-  redis:
-    image: redis:alpine
-    expose:
-      - 6379
+  # redis:
+  #   image: redis:alpine
+  #   expose:
+  #     - 6379
 #     networks:
 #       - app-networks
 
