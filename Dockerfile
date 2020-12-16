@@ -5,8 +5,16 @@ RUN apk add --no-cache shadow
 WORKDIR /var/www
 RUN rm -rf /var/www/html 
 
-COPY . /var/www
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# RUN composer install && \
+#             cp .env.example .env && \
+#             php artisan key:generate && \
+#             php artisan config:cache
+
+# COPY . /var/www
 RUN chown -R www-data:www-data /var/www
+
 
 RUN ln -s public html
 
