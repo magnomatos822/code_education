@@ -26,7 +26,6 @@ services:
       - 6379
     networks:
       - app-networks
-
 networks:
   app-networks:
     driver: bridge
