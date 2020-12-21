@@ -3,9 +3,12 @@ services:
   app:
     build: .
     container_name: app
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 40s php-fpm
     volumes:
       - .:/var/www
-
+    depends_on:
+      - db
+      - redis
     networks:
       - app-networks
   nginx:
@@ -19,6 +22,8 @@ services:
       - "8000:80"
     volumes:
       - .:/var/www
+    depends_on:
+      - app
     networks:
       - app-networks
   db:
