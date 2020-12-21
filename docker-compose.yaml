@@ -21,8 +21,8 @@ services:
     networks:
       - app-networks
   db:
-    image: mysql
-    command: --inodb-use-native-aio=0
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
     container_name: db
     restart: always
     tty: true
@@ -30,7 +30,8 @@ services:
       - '3306:3306'
     environment:
       - MYSQL_DATABASE=laravel
-      - MYSQL_ROOT_PASSWORD=root 
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
     networks:
       - app-networks
   redis:
