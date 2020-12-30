@@ -6,6 +6,7 @@ services:
     entrypoint: dockerize -template ./.docker/app/.env:.env -wait tcp://db:3306 -timeout 40s ./.docker/entrypoint.sh
     environment:
       - DB_HOST=db
+      - DB_PORT=3306
       - DB_DATABASE=laravel
       - DB_USERNAME=root
       - DB_PASSWORD=root
@@ -21,6 +22,10 @@ services:
       context: .docker/nginx
       dockerfile: Dockerfile
     container_name: nginx
+    entrypoint: dockerize -template /etc/nginx/conf.d/nginx.conf:/etc/nginx/conf.d/nginx.conf nginx -g "daemon off;"
+    environment:
+      - NG_HOST=app
+      - NG_PORT=9000
     restart: always
     tty: true
     ports:
@@ -38,7 +43,7 @@ services:
     restart: always
     tty: true
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
       - ./.docker/dbdata:/var/lib/mysql
     environment:

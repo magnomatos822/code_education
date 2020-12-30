@@ -13,3 +13,10 @@ npm-debug.log
 yarn-error.log
 docker-compose.yaml
 .docker/dbdata
+.idea/laravel.iml
+.idea/modules.xml
+.idea/php.xml
+.idea/phpunit.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea
