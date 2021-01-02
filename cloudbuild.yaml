@@ -7,14 +7,14 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']
 
-- id: 'Rodando Composer'
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-t', 'app', 'composer', install]
+# - id: 'Rodando Composer'
+#   name: 'gcr.io/cloud-builders/docker'
+#   args: ['exec', '-t', 'app', 'composer', install]
 
-- id: 'Copiando .env'
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
+# - id: 'Copiando .env'
+#   name: 'gcr.io/cloud-builders/docker'
+#   args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
 
-- id: 'Copiando .env'
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
+# - id: 'Copiando .env'
+#   name: 'gcr.io/cloud-builders/docker'
+#   args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
